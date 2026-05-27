@@ -7,3 +7,7 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 artifacts/
+
+
+database/warehouse/*
+!database/warehouse/setup_data_warehouse_schema.sql
