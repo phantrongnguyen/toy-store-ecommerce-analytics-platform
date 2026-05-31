@@ -1,0 +1,101 @@
+website_pageview_id,created_at,website_session_id,pageview_url,user_id,is_repeat_session,utm_source,utm_campaign,utm_content,device_type,http_referer,order_id,primary_product_id,items_purchased,price_usd,cogs_usd,order_item_id,product_id,is_primary_item,product_name
+510692,2014-03-17 16:05:47,215123,/the-original-mr-fuzzy,186019,0,gsearch,nonbrand,g_ad_1,mobile,https://www.gsearch.com,12619,1,1,49.99,19.49,13429,1,1,The Original Mr. Fuzzy
+510699,2014-03-17 16:09:47,215123,/shipping,186019,0,gsearch,nonbrand,g_ad_1,mobile,https://www.gsearch.com,12619,1,1,49.99,19.49,13429,1,1,The Original Mr. Fuzzy
+510709,2014-03-17 16:17:00,215123,/thank-you-for-your-order,186019,0,gsearch,nonbrand,g_ad_1,mobile,https://www.gsearch.com,12619,1,1,49.99,19.49,13429,1,1,The Original Mr. Fuzzy
+510690,2014-03-17 16:04:06,215123,/products,186019,0,gsearch,nonbrand,g_ad_1,mobile,https://www.gsearch.com,12619,1,1,49.99,19.49,13429,1,1,The Original Mr. Fuzzy
+510699,2014-03-17 16:09:47,215123,/shipping,186019,0,gsearch,nonbrand,g_ad_1,mobile,https://www.gsearch.com,12619,1,1,49.99,19.49,13429,1,1,The Original Mr. Fuzzy
+510692,2014-03-17 16:05:47,215123,/the-original-mr-fuzzy,186019,0,gsearch,nonbrand,g_ad_1,mobile,https://www.gsearch.com,12619,1,1,49.99,19.49,13429,1,1,The Original Mr. Fuzzy
+510703,2014-03-17 16:12:36,215123,/billing-2,186019,0,gsearch,nonbrand,g_ad_1,mobile,https://www.gsearch.com,12619,1,1,49.99,19.49,13429,1,1,The Original Mr. Fuzzy
+510686,2014-03-17 16:01:58,215123,/lander-3,186019,0,gsearch,nonbrand,g_ad_1,mobile,https://www.gsearch.com,12619,1,1,49.99,19.49,13429,1,1,The Original Mr. Fuzzy
+510690,2014-03-17 16:04:06,215123,/products,186019,0,gsearch,nonbrand,g_ad_1,mobile,https://www.gsearch.com,12619,1,1,49.99,19.49,13429,1,1,The Original Mr. Fuzzy
+510696,2014-03-17 16:07:54,215123,/cart,186019,0,gsearch,nonbrand,g_ad_1,mobile,https://www.gsearch.com,12619,1,1,49.99,19.49,13429,1,1,The Original Mr. Fuzzy
+510717,2014-03-17 16:21:04,215124,/billing-2,171894,1,gsearch,brand,g_ad_2,desktop,https://www.gsearch.com,12620,2,1,59.99,22.49,13430,2,1,The Forever Love Bear
+510717,2014-03-17 16:21:04,215124,/billing-2,171894,1,gsearch,brand,g_ad_2,desktop,https://www.gsearch.com,12620,2,1,59.99,22.49,13430,2,1,The Forever Love Bear
+510712,2014-03-17 16:18:50,215124,/shipping,171894,1,gsearch,brand,g_ad_2,desktop,https://www.gsearch.com,12620,2,1,59.99,22.49,13430,2,1,The Forever Love Bear
+510712,2014-03-17 16:18:50,215124,/shipping,171894,1,gsearch,brand,g_ad_2,desktop,https://www.gsearch.com,12620,2,1,59.99,22.49,13430,2,1,The Forever Love Bear
+510698,2014-03-17 16:09:32,215124,/products,171894,1,gsearch,brand,g_ad_2,desktop,https://www.gsearch.com,12620,2,1,59.99,22.49,13430,2,1,The Forever Love Bear
+510698,2014-03-17 16:09:32,215124,/products,171894,1,gsearch,brand,g_ad_2,desktop,https://www.gsearch.com,12620,2,1,59.99,22.49,13430,2,1,The Forever Love Bear
+510706,2014-03-17 16:13:52,215124,/the-forever-love-bear,171894,1,gsearch,brand,g_ad_2,desktop,https://www.gsearch.com,12620,2,1,59.99,22.49,13430,2,1,The Forever Love Bear
+510718,2014-03-17 16:25:06,215124,/thank-you-for-your-order,171894,1,gsearch,brand,g_ad_2,desktop,https://www.gsearch.com,12620,2,1,59.99,22.49,13430,2,1,The Forever Love Bear
+510710,2014-03-17 16:17:13,215124,/cart,171894,1,gsearch,brand,g_ad_2,desktop,https://www.gsearch.com,12620,2,1,59.99,22.49,13430,2,1,The Forever Love Bear
+510706,2014-03-17 16:13:52,215124,/the-forever-love-bear,171894,1,gsearch,brand,g_ad_2,desktop,https://www.gsearch.com,12620,2,1,59.99,22.49,13430,2,1,The Forever Love Bear
+510718,2014-03-17 16:25:06,215124,/thank-you-for-your-order,171894,1,gsearch,brand,g_ad_2,desktop,https://www.gsearch.com,12620,2,1,59.99,22.49,13430,2,1,The Forever Love Bear
+510691,2014-03-17 16:05:38,215124,/home,171894,1,gsearch,brand,g_ad_2,desktop,https://www.gsearch.com,12620,2,1,59.99,22.49,13430,2,1,The Forever Love Bear
+510691,2014-03-17 16:05:38,215124,/home,171894,1,gsearch,brand,g_ad_2,desktop,https://www.gsearch.com,12620,2,1,59.99,22.49,13430,2,1,The Forever Love Bear
+510710,2014-03-17 16:17:13,215124,/cart,171894,1,gsearch,brand,g_ad_2,desktop,https://www.gsearch.com,12620,2,1,59.99,22.49,13430,2,1,The Forever Love Bear
+510755,2014-03-17 17:17:46,215143,/the-original-mr-fuzzy,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13431,1,1,The Original Mr. Fuzzy
+510755,2014-03-17 17:17:46,215143,/the-original-mr-fuzzy,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13432,4,0,The Hudson River Mini bear
+510755,2014-03-17 17:17:46,215143,/the-original-mr-fuzzy,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13431,1,1,The Original Mr. Fuzzy
+510755,2014-03-17 17:17:46,215143,/the-original-mr-fuzzy,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13432,4,0,The Hudson River Mini bear
+510764,2014-03-17 17:24:01,215143,/billing-2,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13431,1,1,The Original Mr. Fuzzy
+510764,2014-03-17 17:24:01,215143,/billing-2,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13432,4,0,The Hudson River Mini bear
+510764,2014-03-17 17:24:01,215143,/billing-2,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13431,1,1,The Original Mr. Fuzzy
+510764,2014-03-17 17:24:01,215143,/billing-2,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13432,4,0,The Hudson River Mini bear
+510765,2014-03-17 17:25:16,215143,/thank-you-for-your-order,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13431,1,1,The Original Mr. Fuzzy
+510765,2014-03-17 17:25:16,215143,/thank-you-for-your-order,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13432,4,0,The Hudson River Mini bear
+510765,2014-03-17 17:25:16,215143,/thank-you-for-your-order,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13431,1,1,The Original Mr. Fuzzy
+510765,2014-03-17 17:25:16,215143,/thank-you-for-your-order,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13432,4,0,The Hudson River Mini bear
+510757,2014-03-17 17:20:28,215143,/cart,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13431,1,1,The Original Mr. Fuzzy
+510757,2014-03-17 17:20:28,215143,/cart,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13432,4,0,The Hudson River Mini bear
+510757,2014-03-17 17:20:28,215143,/cart,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13431,1,1,The Original Mr. Fuzzy
+510757,2014-03-17 17:20:28,215143,/cart,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13432,4,0,The Hudson River Mini bear
+510748,2014-03-17 17:13:31,215143,/home,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13431,1,1,The Original Mr. Fuzzy
+510748,2014-03-17 17:13:31,215143,/home,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13432,4,0,The Hudson River Mini bear
+510748,2014-03-17 17:13:31,215143,/home,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13431,1,1,The Original Mr. Fuzzy
+510748,2014-03-17 17:13:31,215143,/home,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13432,4,0,The Hudson River Mini bear
+510752,2014-03-17 17:16:25,215143,/products,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13431,1,1,The Original Mr. Fuzzy
+510752,2014-03-17 17:16:25,215143,/products,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13432,4,0,The Hudson River Mini bear
+510752,2014-03-17 17:16:25,215143,/products,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13431,1,1,The Original Mr. Fuzzy
+510752,2014-03-17 17:16:25,215143,/products,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13432,4,0,The Hudson River Mini bear
+510761,2014-03-17 17:22:10,215143,/shipping,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13431,1,1,The Original Mr. Fuzzy
+510761,2014-03-17 17:22:10,215143,/shipping,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13432,4,0,The Hudson River Mini bear
+510761,2014-03-17 17:22:10,215143,/shipping,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13431,1,1,The Original Mr. Fuzzy
+510761,2014-03-17 17:22:10,215143,/shipping,172608,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12621,1,2,79.98,28.98,13432,4,0,The Hudson River Mini bear
+510773,2014-03-17 17:34:33,215154,/lander-2,186045,0,gsearch,nonbrand,g_ad_1,desktop,https://www.gsearch.com,12622,3,1,45.99,14.49,13433,3,1,The Birthday Sugar Panda
+510773,2014-03-17 17:34:33,215154,/lander-2,186045,0,gsearch,nonbrand,g_ad_1,desktop,https://www.gsearch.com,12622,3,1,45.99,14.49,13433,3,1,The Birthday Sugar Panda
+510788,2014-03-17 17:44:44,215154,/billing-2,186045,0,gsearch,nonbrand,g_ad_1,desktop,https://www.gsearch.com,12622,3,1,45.99,14.49,13433,3,1,The Birthday Sugar Panda
+510788,2014-03-17 17:44:44,215154,/billing-2,186045,0,gsearch,nonbrand,g_ad_1,desktop,https://www.gsearch.com,12622,3,1,45.99,14.49,13433,3,1,The Birthday Sugar Panda
+510785,2014-03-17 17:42:55,215154,/shipping,186045,0,gsearch,nonbrand,g_ad_1,desktop,https://www.gsearch.com,12622,3,1,45.99,14.49,13433,3,1,The Birthday Sugar Panda
+510785,2014-03-17 17:42:55,215154,/shipping,186045,0,gsearch,nonbrand,g_ad_1,desktop,https://www.gsearch.com,12622,3,1,45.99,14.49,13433,3,1,The Birthday Sugar Panda
+510780,2014-03-17 17:38:45,215154,/products,186045,0,gsearch,nonbrand,g_ad_1,desktop,https://www.gsearch.com,12622,3,1,45.99,14.49,13433,3,1,The Birthday Sugar Panda
+510793,2014-03-17 17:48:46,215154,/thank-you-for-your-order,186045,0,gsearch,nonbrand,g_ad_1,desktop,https://www.gsearch.com,12622,3,1,45.99,14.49,13433,3,1,The Birthday Sugar Panda
+510782,2014-03-17 17:41:02,215154,/cart,186045,0,gsearch,nonbrand,g_ad_1,desktop,https://www.gsearch.com,12622,3,1,45.99,14.49,13433,3,1,The Birthday Sugar Panda
+510780,2014-03-17 17:38:45,215154,/products,186045,0,gsearch,nonbrand,g_ad_1,desktop,https://www.gsearch.com,12622,3,1,45.99,14.49,13433,3,1,The Birthday Sugar Panda
+510793,2014-03-17 17:48:46,215154,/thank-you-for-your-order,186045,0,gsearch,nonbrand,g_ad_1,desktop,https://www.gsearch.com,12622,3,1,45.99,14.49,13433,3,1,The Birthday Sugar Panda
+510781,2014-03-17 17:40:29,215154,/the-birthday-sugar-panda,186045,0,gsearch,nonbrand,g_ad_1,desktop,https://www.gsearch.com,12622,3,1,45.99,14.49,13433,3,1,The Birthday Sugar Panda
+510781,2014-03-17 17:40:29,215154,/the-birthday-sugar-panda,186045,0,gsearch,nonbrand,g_ad_1,desktop,https://www.gsearch.com,12622,3,1,45.99,14.49,13433,3,1,The Birthday Sugar Panda
+510782,2014-03-17 17:41:02,215154,/cart,186045,0,gsearch,nonbrand,g_ad_1,desktop,https://www.gsearch.com,12622,3,1,45.99,14.49,13433,3,1,The Birthday Sugar Panda
+510818,2014-03-17 18:01:26,215158,/thank-you-for-your-order,172121,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12623,3,1,45.99,14.49,13434,3,1,The Birthday Sugar Panda
+510818,2014-03-17 18:01:26,215158,/thank-you-for-your-order,172121,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12623,3,1,45.99,14.49,13434,3,1,The Birthday Sugar Panda
+510789,2014-03-17 17:45:30,215158,/products,172121,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12623,3,1,45.99,14.49,13434,3,1,The Birthday Sugar Panda
+510794,2014-03-17 17:49:22,215158,/the-birthday-sugar-panda,172121,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12623,3,1,45.99,14.49,13434,3,1,The Birthday Sugar Panda
+510801,2014-03-17 17:54:28,215158,/shipping,172121,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12623,3,1,45.99,14.49,13434,3,1,The Birthday Sugar Panda
+510789,2014-03-17 17:45:30,215158,/products,172121,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12623,3,1,45.99,14.49,13434,3,1,The Birthday Sugar Panda
+510803,2014-03-17 17:56:00,215158,/billing-2,172121,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12623,3,1,45.99,14.49,13434,3,1,The Birthday Sugar Panda
+510801,2014-03-17 17:54:28,215158,/shipping,172121,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12623,3,1,45.99,14.49,13434,3,1,The Birthday Sugar Panda
+510796,2014-03-17 17:51:24,215158,/cart,172121,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12623,3,1,45.99,14.49,13434,3,1,The Birthday Sugar Panda
+510796,2014-03-17 17:51:24,215158,/cart,172121,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12623,3,1,45.99,14.49,13434,3,1,The Birthday Sugar Panda
+510783,2014-03-17 17:41:39,215158,/home,172121,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12623,3,1,45.99,14.49,13434,3,1,The Birthday Sugar Panda
+510783,2014-03-17 17:41:39,215158,/home,172121,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12623,3,1,45.99,14.49,13434,3,1,The Birthday Sugar Panda
+510794,2014-03-17 17:49:22,215158,/the-birthday-sugar-panda,172121,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12623,3,1,45.99,14.49,13434,3,1,The Birthday Sugar Panda
+510803,2014-03-17 17:56:00,215158,/billing-2,172121,1,NULL,NULL,NULL,desktop,https://www.gsearch.com,12623,3,1,45.99,14.49,13434,3,1,The Birthday Sugar Panda
+510845,2014-03-17 18:14:08,215173,/billing-2,186060,0,bsearch,nonbrand,b_ad_1,desktop,https://www.bsearch.com,12624,1,1,49.99,19.49,13435,1,1,The Original Mr. Fuzzy
+510834,2014-03-17 18:08:59,215173,/the-original-mr-fuzzy,186060,0,bsearch,nonbrand,b_ad_1,desktop,https://www.bsearch.com,12624,1,1,49.99,19.49,13435,1,1,The Original Mr. Fuzzy
+510834,2014-03-17 18:08:59,215173,/the-original-mr-fuzzy,186060,0,bsearch,nonbrand,b_ad_1,desktop,https://www.bsearch.com,12624,1,1,49.99,19.49,13435,1,1,The Original Mr. Fuzzy
+510845,2014-03-17 18:14:08,215173,/billing-2,186060,0,bsearch,nonbrand,b_ad_1,desktop,https://www.bsearch.com,12624,1,1,49.99,19.49,13435,1,1,The Original Mr. Fuzzy
+510827,2014-03-17 18:05:02,215173,/lander-4,186060,0,bsearch,nonbrand,b_ad_1,desktop,https://www.bsearch.com,12624,1,1,49.99,19.49,13435,1,1,The Original Mr. Fuzzy
+510827,2014-03-17 18:05:02,215173,/lander-4,186060,0,bsearch,nonbrand,b_ad_1,desktop,https://www.bsearch.com,12624,1,1,49.99,19.49,13435,1,1,The Original Mr. Fuzzy
+510836,2014-03-17 18:11:06,215173,/cart,186060,0,bsearch,nonbrand,b_ad_1,desktop,https://www.bsearch.com,12624,1,1,49.99,19.49,13435,1,1,The Original Mr. Fuzzy
+510857,2014-03-17 18:18:13,215173,/thank-you-for-your-order,186060,0,bsearch,nonbrand,b_ad_1,desktop,https://www.bsearch.com,12624,1,1,49.99,19.49,13435,1,1,The Original Mr. Fuzzy
+510843,2014-03-17 18:13:30,215173,/shipping,186060,0,bsearch,nonbrand,b_ad_1,desktop,https://www.bsearch.com,12624,1,1,49.99,19.49,13435,1,1,The Original Mr. Fuzzy
+510843,2014-03-17 18:13:30,215173,/shipping,186060,0,bsearch,nonbrand,b_ad_1,desktop,https://www.bsearch.com,12624,1,1,49.99,19.49,13435,1,1,The Original Mr. Fuzzy
+510857,2014-03-17 18:18:13,215173,/thank-you-for-your-order,186060,0,bsearch,nonbrand,b_ad_1,desktop,https://www.bsearch.com,12624,1,1,49.99,19.49,13435,1,1,The Original Mr. Fuzzy
+510836,2014-03-17 18:11:06,215173,/cart,186060,0,bsearch,nonbrand,b_ad_1,desktop,https://www.bsearch.com,12624,1,1,49.99,19.49,13435,1,1,The Original Mr. Fuzzy
+510828,2014-03-17 18:06:36,215173,/products,186060,0,bsearch,nonbrand,b_ad_1,desktop,https://www.bsearch.com,12624,1,1,49.99,19.49,13435,1,1,The Original Mr. Fuzzy
+510828,2014-03-17 18:06:36,215173,/products,186060,0,bsearch,nonbrand,b_ad_1,desktop,https://www.bsearch.com,12624,1,1,49.99,19.49,13435,1,1,The Original Mr. Fuzzy
+510850,2014-03-17 18:15:17,215175,/billing-2,186062,0,gsearch,nonbrand,g_ad_1,desktop,https://www.gsearch.com,12625,3,2,75.98,23.98,13436,3,1,The Birthday Sugar Panda
+510850,2014-03-17 18:15:17,215175,/billing-2,186062,0,gsearch,nonbrand,g_ad_1,desktop,https://www.gsearch.com,12625,3,2,75.98,23.98,13437,4,0,The Hudson River Mini bear
+510848,2014-03-17 18:14:54,215175,/shipping,186062,0,gsearch,nonbrand,g_ad_1,desktop,https://www.gsearch.com,12625,3,2,75.98,23.98,13436,3,1,The Birthday Sugar Panda
+510848,2014-03-17 18:14:54,215175,/shipping,186062,0,gsearch,nonbrand,g_ad_1,desktop,https://www.gsearch.com,12625,3,2,75.98,23.98,13437,4,0,The Hudson River Mini bear
+510848,2014-03-17 18:14:54,215175,/shipping,186062,0,gsearch,nonbrand,g_ad_1,desktop,https://www.gsearch.com,12625,3,2,75.98,23.98,13436,3,1,The Birthday Sugar Panda
+510848,2014-03-17 18:14:54,215175,/shipping,186062,0,gsearch,nonbrand,g_ad_1,desktop,https://www.gsearch.com,12625,3,2,75.98,23.98,13437,4,0,The Hudson River Mini bear
