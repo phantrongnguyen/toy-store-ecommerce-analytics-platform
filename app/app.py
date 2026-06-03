@@ -137,7 +137,7 @@ hour = st.number_input(
     value=14
 )
 
-if st.button("Predict Revenue"):
+if st.button("Predict Revenue", key="predict_btn_1"):
 
     # Create input DataFrame for model inference
     sample_input = pd.DataFrame([
@@ -171,6 +171,109 @@ if st.button("Predict Revenue"):
 
         st.subheader("Input Data")
         st.dataframe(sample_input)
+
+    except Exception as e:
+        st.error(
+            "Prediction failed. The input features may not match the training pipeline."
+        )
+        st.exception(e)
+
+actual_revenue = st.number_input(
+    "Actual Revenue",
+    min_value=0.0,
+    value=0.0,
+    step=1.0,
+    help="Enter actual revenue to calculate prediction error"
+)
+
+if st.button("Predict Revenue", key="predict_btn_2"):
+
+    sample_input = pd.DataFrame([
+        {
+            "items_purchased": items_purchased,
+            "product_id": product_id,
+            "product_name": product_name,
+            "primary_product_id": primary_product_id,
+            "is_primary_item": is_primary_item,
+            "utm_source": utm_source,
+            "utm_campaign": utm_campaign,
+            "utm_content": utm_content,
+            "device_type": device_type,
+            "http_referer": http_referer,
+            "is_repeat_session": is_repeat_session,
+            "year": year,
+            "month": month,
+            "day": day,
+            "quater": quarter,
+            "hour": hour
+        }
+    ])
+
+    try:
+        # Generate prediction
+        prediction = model.predict(sample_input)[0]
+
+        st.success(f"Predicted Revenue: ${prediction:,.2f}")
+
+        st.subheader("Input Data")
+        st.dataframe(sample_input)
+
+        # Calculate prediction error if actual revenue is provided
+        if actual_revenue > 0:
+            absolute_error = abs(actual_revenue - prediction)
+            percentage_error = (absolute_error / actual_revenue) * 100
+
+            st.subheader("Prediction Error")
+
+            col1, col2, col3 = st.columns(3)
+
+            col1.metric(
+                label="Actual Revenue",
+                value=f"${actual_revenue:,.2f}"
+            )
+
+            col2.metric(
+                label="Predicted Revenue",
+                value=f"${prediction:,.2f}",
+                delta=f"${prediction - actual_revenue:+,.2f}"
+            )
+
+            col3.metric(
+                label="Absolute Error",
+                value=f"${absolute_error:,.2f}"
+            )
+
+            accuracy = max(0.0, 100.0 - percentage_error)
+
+            st.subheader("Accuracy")
+            st.progress(int(accuracy))
+
+            acol1, acol2 = st.columns(2)
+            acol1.metric("Percentage Error", f"{percentage_error:.2f}%")
+            acol2.metric("Accuracy", f"{accuracy:.2f}%")
+
+            # Actual vs Predicted comparison chart
+            chart_data = pd.DataFrame({
+                "Type": ["Actual", "Predicted"],
+                "Revenue": [actual_revenue, prediction]
+            })
+
+            st.subheader("Actual vs Predicted Revenue")
+            st.bar_chart(chart_data.set_index("Type"), color=["#ff4b4b", "#21c354"])
+
+            # Error analysis chart
+            error_data = pd.DataFrame({
+                "Metric": ["Absolute Error ($)", "Accuracy (%)"],
+                "Value": [absolute_error, accuracy]
+            })
+
+            st.subheader("Error Analysis")
+            st.bar_chart(error_data.set_index("Metric"), color=["#ff6b6b", "#4ecdc4"])
+
+        else:
+            st.info(
+                "Enter Actual Revenue greater than 0 to calculate prediction error."
+            )
 
     except Exception as e:
         st.error(
