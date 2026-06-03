@@ -1,16 +1,21 @@
 import streamlit as st
 import pandas as pd
-import pickle
+import joblib
 
 from pathlib import Path
 
-MODEL_PATH = Path(__file__).resolve().parent.parent / "ml" / "models" / "profit_prediction_model.pkl"
+MODEL_PATH = (
+    Path(__file__).resolve().parent.parent
+    / "ml"
+    / "models"
+    / "profit_prediction_model.pkl"
+)
 
 
 @st.cache_resource
 def load_model():
-    with open(MODEL_PATH, "rb") as f:
-        model = pickle.load(f)
+    """Load the trained prediction model."""
+    model = joblib.load(MODEL_PATH)
     return model
 
 
@@ -23,14 +28,26 @@ st.set_page_config(
 model = load_model()
 
 st.title("🧸 Toy Store E-Commerce Revenue Prediction")
-st.write("Dự đoán doanh thu theo session dựa trên thông tin sản phẩm, marketing và thời gian.")
+st.write(
+    "Predict session revenue based on product, marketing, and time-related features."
+)
 
-st.subheader("Nhập thông tin session")
+st.subheader("Enter Session Information")
 
-items_purchased = st.number_input("Items purchased", min_value=1, value=1)
-product_id = st.number_input("Product ID", min_value=1, value=1)
+items_purchased = st.number_input(
+    "Items Purchased",
+    min_value=1,
+    value=1
+)
+
+product_id = st.number_input(
+    "Product ID",
+    min_value=1,
+    value=1
+)
+
 product_name = st.selectbox(
-    "Product name",
+    "Product Name",
     [
         "The Original Mr. Fuzzy",
         "The Forever Love Bear",
@@ -39,28 +56,39 @@ product_name = st.selectbox(
     ]
 )
 
-primary_product_id = st.number_input("Primary product ID", min_value=1, value=1)
-is_primary_item = st.selectbox("Is primary item", [1, 0])
+primary_product_id = st.number_input(
+    "Primary Product ID",
+    min_value=1,
+    value=1
+)
+
+is_primary_item = st.selectbox(
+    "Is Primary Item",
+    [1, 0]
+)
 
 utm_source = st.selectbox(
-    "UTM source",
+    "UTM Source",
     ["gsearch", "bsearch", "socialbook", "email", "direct", "organic"]
 )
 
 utm_campaign = st.selectbox(
-    "UTM campaign",
+    "UTM Campaign",
     ["nonbrand", "brand", "desktop_targeted", "pilot", "none"]
 )
 
 utm_content = st.selectbox(
-    "UTM content",
+    "UTM Content",
     ["g_ad_1", "g_ad_2", "b_ad_1", "b_ad_2", "none"]
 )
 
-device_type = st.selectbox("Device type", ["desktop", "mobile"])
+device_type = st.selectbox(
+    "Device Type",
+    ["desktop", "mobile"]
+)
 
 http_referer = st.selectbox(
-    "HTTP referer",
+    "HTTP Referrer",
     [
         "https://www.gsearch.com",
         "https://www.bsearch.com",
@@ -69,15 +97,49 @@ http_referer = st.selectbox(
     ]
 )
 
-is_repeat_session = st.selectbox("Is repeat session", [0, 1])
+is_repeat_session = st.selectbox(
+    "Is Repeat Session",
+    [0, 1]
+)
 
-year = st.number_input("Year", min_value=2010, max_value=2030, value=2013)
-month = st.number_input("Month", min_value=1, max_value=12, value=5)
-day = st.number_input("Day", min_value=1, max_value=31, value=12)
-quater = st.number_input("Quarter", min_value=1, max_value=4, value=2)
-hour = st.number_input("Hour", min_value=0, max_value=23, value=14)
+year = st.number_input(
+    "Year",
+    min_value=2010,
+    max_value=2030,
+    value=2013
+)
 
-if st.button("Dự đoán doanh thu"):
+month = st.number_input(
+    "Month",
+    min_value=1,
+    max_value=12,
+    value=5
+)
+
+day = st.number_input(
+    "Day",
+    min_value=1,
+    max_value=31,
+    value=12
+)
+
+quarter = st.number_input(
+    "Quarter",
+    min_value=1,
+    max_value=4,
+    value=2
+)
+
+hour = st.number_input(
+    "Hour",
+    min_value=0,
+    max_value=23,
+    value=14
+)
+
+if st.button("Predict Revenue"):
+
+    # Create input DataFrame for model inference
     sample_input = pd.DataFrame([
         {
             "items_purchased": items_purchased,
@@ -94,19 +156,24 @@ if st.button("Dự đoán doanh thu"):
             "year": year,
             "month": month,
             "day": day,
-            "quater": quater,
+            "quater": quarter,
             "hour": hour
         }
     ])
 
     try:
+        # Generate prediction
         prediction = model.predict(sample_input)[0]
 
-        st.success(f"Doanh thu dự đoán: ${prediction:,.2f}")
+        st.success(
+            f"Predicted Revenue: ${prediction:,.2f}"
+        )
 
-        st.subheader("Dữ liệu đầu vào")
+        st.subheader("Input Data")
         st.dataframe(sample_input)
 
     except Exception as e:
-        st.error("Không thể dự đoán. Có thể input chưa khớp với pipeline/model đã train.")
+        st.error(
+            "Prediction failed. The input features may not match the training pipeline."
+        )
         st.exception(e)
