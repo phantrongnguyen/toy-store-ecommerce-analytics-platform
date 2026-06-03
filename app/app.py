@@ -254,21 +254,21 @@ if st.button("Predict Revenue", key="predict_btn_2"):
 
             # Actual vs Predicted comparison chart
             chart_data = pd.DataFrame({
-                "Type": ["Actual", "Predicted"],
-                "Revenue": [actual_revenue, prediction]
+                "Actual": [actual_revenue],
+                "Predicted": [prediction]
             })
 
             st.subheader("Actual vs Predicted Revenue")
-            st.bar_chart(chart_data.set_index("Type"), color=["#ff4b4b", "#21c354"])
+            st.bar_chart(chart_data, color=["#ff4b4b", "#21c354"])
 
             # Error analysis chart
             error_data = pd.DataFrame({
-                "Metric": ["Absolute Error ($)", "Accuracy (%)"],
-                "Value": [absolute_error, accuracy]
+                "Absolute Error ($)": [absolute_error],
+                "Accuracy (%)": [accuracy]
             })
 
             st.subheader("Error Analysis")
-            st.bar_chart(error_data.set_index("Metric"), color=["#ff6b6b", "#4ecdc4"])
+            st.bar_chart(error_data, color=["#ff6b6b", "#4ecdc4"])
 
         else:
             st.info(
