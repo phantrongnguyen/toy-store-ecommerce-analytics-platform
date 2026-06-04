@@ -3,242 +3,627 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toy Store - Revenue Prediction</title>
+    <title>Toy Store Analytics Platform</title>
     <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
     <nav class="navbar">
-        <div class="nav-brand">
+        <div class="nav-brand" onclick="navigate('home')">
             <span class="nav-icon">🧸</span>
-            <span class="nav-title">Toy Store Analytics</span>
+            <span class="nav-title">ToyStore Analytics</span>
         </div>
-        <div class="nav-status">
-            <span class="status-dot"></span>
-            <span class="status-text">API Connected</span>
-        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+            <li><a href="#" class="nav-link" data-page="about">About</a></li>
+            <li><a href="#" class="nav-link" data-page="skills">Skills</a></li>
+            <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+            <li class="nav-divider"></li>
+            <li><a href="#" class="nav-link nav-auth" data-page="signin">Sign In</a></li>
+            <li><a href="#" class="nav-link nav-signup" data-page="signup">Sign Up</a></li>
+        </ul>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
 
     <main class="container">
-        <header class="page-header">
-            <h1>Revenue Prediction</h1>
-            <p>Predict session revenue based on product, marketing, and time features</p>
-        </header>
 
-        <div class="layout">
-            <section class="card form-card">
-                <div class="card-header">
-                    <h2>Session Information</h2>
-                    <span class="card-badge">Input</span>
-                </div>
-                <form id="prediction-form" class="form-grid">
-                    <fieldset class="fieldset">
-                        <legend>Product</legend>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="items_purchased">Items Purchased</label>
-                                <input type="number" id="items_purchased" name="items_purchased" min="1" value="1" required>
+        <!-- ==================== HOME ==================== -->
+        <section class="page active" id="page-home">
+            <header class="page-header">
+                <h1>Revenue Prediction</h1>
+                <p>Predict session revenue based on product, marketing, and time features</p>
+            </header>
+            <div class="layout">
+                <section class="card form-card">
+                    <div class="card-header">
+                        <h2>Session Information</h2>
+                        <span class="card-badge">Input</span>
+                    </div>
+                    <form id="prediction-form" class="form-grid">
+                        <fieldset class="fieldset">
+                            <legend>Product</legend>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="items_purchased">Items Purchased</label>
+                                    <input type="number" id="items_purchased" name="items_purchased" min="1" value="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="product_id">Product ID</label>
+                                    <input type="number" id="product_id" name="product_id" min="1" value="1" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="product_name">Product Name</label>
+                                    <select id="product_name" name="product_name">
+                                        <option value="The Original Mr. Fuzzy">The Original Mr. Fuzzy</option>
+                                        <option value="The Forever Love Bear">The Forever Love Bear</option>
+                                        <option value="The Birthday Sugar Panda">The Birthday Sugar Panda</option>
+                                        <option value="The Hudson River Mini bear">The Hudson River Mini bear</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="primary_product_id">Primary Product ID</label>
+                                    <input type="number" id="primary_product_id" name="primary_product_id" min="1" value="1" required>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="product_id">Product ID</label>
-                                <input type="number" id="product_id" name="product_id" min="1" value="1" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="product_name">Product Name</label>
-                                <select id="product_name" name="product_name">
-                                    <option value="The Original Mr. Fuzzy">The Original Mr. Fuzzy</option>
-                                    <option value="The Forever Love Bear">The Forever Love Bear</option>
-                                    <option value="The Birthday Sugar Panda">The Birthday Sugar Panda</option>
-                                    <option value="The Hudson River Mini bear">The Hudson River Mini bear</option>
+                                <label for="is_primary_item">Is Primary Item</label>
+                                <select id="is_primary_item" name="is_primary_item">
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
                                 </select>
                             </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend>Marketing</legend>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="utm_source">UTM Source</label>
+                                    <select id="utm_source" name="utm_source">
+                                        <option value="gsearch">Google Search</option>
+                                        <option value="bsearch">Bing Search</option>
+                                        <option value="socialbook">Socialbook</option>
+                                        <option value="email">Email</option>
+                                        <option value="direct">Direct</option>
+                                        <option value="organic">Organic</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="utm_campaign">UTM Campaign</label>
+                                    <select id="utm_campaign" name="utm_campaign">
+                                        <option value="nonbrand">Non-Brand</option>
+                                        <option value="brand">Brand</option>
+                                        <option value="desktop_targeted">Desktop Targeted</option>
+                                        <option value="pilot">Pilot</option>
+                                        <option value="none">None</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="utm_content">UTM Content</label>
+                                    <select id="utm_content" name="utm_content">
+                                        <option value="g_ad_1">Google Ad 1</option>
+                                        <option value="g_ad_2">Google Ad 2</option>
+                                        <option value="b_ad_1">Bing Ad 1</option>
+                                        <option value="b_ad_2">Bing Ad 2</option>
+                                        <option value="none">None</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="device_type">Device Type</label>
+                                    <select id="device_type" name="device_type">
+                                        <option value="desktop">Desktop</option>
+                                        <option value="mobile">Mobile</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="http_referer">HTTP Referrer</label>
+                                    <select id="http_referer" name="http_referer">
+                                        <option value="https://www.gsearch.com">Google Search</option>
+                                        <option value="https://www.bsearch.com">Bing Search</option>
+                                        <option value="https://www.socialbook.com">Socialbook</option>
+                                        <option value="none">None / Direct</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="is_repeat_session">Repeat Session</label>
+                                    <select id="is_repeat_session" name="is_repeat_session">
+                                        <option value="0">New Session</option>
+                                        <option value="1">Repeat Session</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend>Time</legend>
+                            <div class="form-row four-col">
+                                <div class="form-group">
+                                    <label for="year">Year</label>
+                                    <input type="number" id="year" name="year" min="2010" max="2030" value="2013" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="month">Month</label>
+                                    <input type="number" id="month" name="month" min="1" max="12" value="5" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="day">Day</label>
+                                    <input type="number" id="day" name="day" min="1" max="31" value="12" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="hour">Hour</label>
+                                    <input type="number" id="hour" name="hour" min="0" max="23" value="14" required>
+                                </div>
+                            </div>
                             <div class="form-group">
-                                <label for="primary_product_id">Primary Product ID</label>
-                                <input type="number" id="primary_product_id" name="primary_product_id" min="1" value="1" required>
+                                <label for="quater">Quarter</label>
+                                <select id="quater" name="quater">
+                                    <option value="1">Q1</option>
+                                    <option value="2" selected>Q2</option>
+                                    <option value="3">Q3</option>
+                                    <option value="4">Q4</option>
+                                </select>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <legend>Actual Revenue <span class="optional-badge">Optional</span></legend>
+                            <div class="form-group">
+                                <label for="actual_revenue">Actual Revenue ($)</label>
+                                <input type="number" id="actual_revenue" name="actual_revenue" min="0" step="0.01" value=""
+                                    placeholder="Enter for error analysis">
+                            </div>
+                        </fieldset>
+
+                        <button type="submit" class="btn-primary" id="predict-btn">
+                            <span class="btn-icon">📊</span>
+                            <span class="btn-text">Predict Revenue</span>
+                            <span class="spinner" id="btn-spinner"></span>
+                        </button>
+                    </form>
+                </section>
+
+                <section class="card result-card" id="result-section" style="display:none;">
+                    <div class="card-header">
+                        <h2>Prediction Result</h2>
+                        <span class="card-badge result-badge">Result</span>
+                    </div>
+                    <div id="result-content">
+                        <div class="result-hero">
+                            <div class="hero-label">Predicted Revenue</div>
+                            <div class="hero-value" id="predicted-revenue">$0.00</div>
+                        </div>
+                        <div class="result-metrics" id="metrics-row" style="display:none;">
+                            <div class="metric-card">
+                                <div class="metric-label">Actual Revenue</div>
+                                <div class="metric-value actual" id="actual-value">$0.00</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-label">Absolute Error</div>
+                                <div class="metric-value error" id="abs-error">$0.00</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-label">Percentage Error</div>
+                                <div class="metric-value pct" id="pct-error">0.00%</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-label">Accuracy</div>
+                                <div class="metric-value acc" id="accuracy">0.00%</div>
+                            </div>
+                        </div>
+                        <div class="result-charts" id="charts-row" style="display:none;">
+                            <div class="chart-container">
+                                <h3>Actual vs Predicted</h3>
+                                <canvas id="comparison-chart"></canvas>
+                            </div>
+                            <div class="chart-container">
+                                <h3>Accuracy</h3>
+                                <div class="gauge-container">
+                                    <canvas id="gauge-chart"></canvas>
+                                    <div class="gauge-value" id="gauge-value">0%</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-summary">
+                            <h3>Input Data</h3>
+                            <div class="summary-grid" id="summary-grid"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card error-card" id="error-section" style="display:none;">
+                    <div class="card-header">
+                        <h2>Error</h2>
+                        <span class="card-badge error-badge">Error</span>
+                    </div>
+                    <div class="error-content" id="error-content"></div>
+                </section>
+            </div>
+        </section>
+
+        <!-- ==================== ABOUT ==================== -->
+        <section class="page" id="page-about">
+            <header class="page-header">
+                <h1>About the Project</h1>
+                <p>End-to-end e-commerce analytics platform powered by data science</p>
+            </header>
+
+            <div class="about-hero-card card">
+                <div class="about-hero-content">
+                    <span class="about-icon">📊</span>
+                    <h2>Toy Store E-Commerce Analytics Platform</h2>
+                    <p>
+                        A complete data pipeline from raw CSV data to machine learning predictions.
+                        This platform ingests e-commerce session data into a SQL Server OLTP database,
+                        transforms it through SSIS ETL into a star-schema data warehouse, and serves
+                        predictions via a FastAPI backend with an interactive dark-mode dashboard.
+                    </p>
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <span class="stat-number" data-target="6">0</span>
+                            <span class="stat-label">Data Tables</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="stat-number" data-target="5">0</span>
+                            <span class="stat-label">ML Models</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="stat-number" data-target="95">0</span>
+                            <span class="stat-label">Accuracy %</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="stat-number" data-target="1">0</span>
+                            <span class="stat-label">API Version</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-grid">
+                <div class="card info-card">
+                    <div class="info-icon">🎯</div>
+                    <h3>Mission</h3>
+                    <p>Democratize e-commerce revenue prediction with accessible, accurate machine learning tools for small to medium toy retailers.</p>
+                </div>
+                <div class="card info-card">
+                    <div class="info-icon">🔧</div>
+                    <h3>Tech Stack</h3>
+                    <p>Python, FastAPI, Streamlit, SQL Server, SSIS, Scikit-learn, Power BI, Chart.js — full-stack data engineering and analytics.</p>
+                </div>
+                <div class="card info-card">
+                    <div class="info-icon">📈</div>
+                    <h3>Impact</h3>
+                    <p>Random Forest model achieves 95.9% R² score, enabling data-driven inventory and marketing decisions for e-commerce stores.</p>
+                </div>
+                <div class="card info-card">
+                    <div class="info-icon">🔮</div>
+                    <h3>Future</h3>
+                    <p>Planned enhancements include purchase prediction, refund prediction, real-time streaming, and dynamic dashboard updates.</p>
+                </div>
+            </div>
+
+            <div class="card team-card">
+                <div class="card-header">
+                    <h2>Data Pipeline Architecture</h2>
+                </div>
+                <div class="pipeline-flow">
+                    <div class="pipeline-step">
+                        <span class="step-icon">📁</span>
+                        <span class="step-label">CSV Files</span>
+                    </div>
+                    <span class="pipeline-arrow">→</span>
+                    <div class="pipeline-step">
+                        <span class="step-icon">🗄️</span>
+                        <span class="step-label">SQL Server OLTP</span>
+                    </div>
+                    <span class="pipeline-arrow">→</span>
+                    <div class="pipeline-step">
+                        <span class="step-icon">🔄</span>
+                        <span class="step-label">SSIS ETL</span>
+                    </div>
+                    <span class="pipeline-arrow">→</span>
+                    <div class="pipeline-step">
+                        <span class="step-icon">⭐</span>
+                        <span class="step-label">Star Schema DW</span>
+                    </div>
+                    <span class="pipeline-arrow">→</span>
+                    <div class="pipeline-step">
+                        <span class="step-icon">🤖</span>
+                        <span class="step-label">ML Pipeline</span>
+                    </div>
+                    <span class="pipeline-arrow">→</span>
+                    <div class="pipeline-step">
+                        <span class="step-icon">📡</span>
+                        <span class="step-label">FastAPI + UI</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SKILLS ==================== -->
+        <section class="page" id="page-skills">
+            <header class="page-header">
+                <h1>Skills & Technologies</h1>
+                <p>Tools and frameworks powering the analytics platform</p>
+            </header>
+
+            <div class="skills-grid">
+                <div class="card skill-card">
+                    <div class="skill-header">
+                        <span class="skill-icon">🐍</span>
+                        <h3>Python</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="90"></div>
+                    </div>
+                    <span class="skill-pct">90%</span>
+                    <p class="skill-desc">Data processing, ML modeling, API development</p>
+                </div>
+
+                <div class="card skill-card">
+                    <div class="skill-header">
+                        <span class="skill-icon">⚡</span>
+                        <h3>FastAPI</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="85"></div>
+                    </div>
+                    <span class="skill-pct">85%</span>
+                    <p class="skill-desc">REST API with Pydantic validation and auto docs</p>
+                </div>
+
+                <div class="card skill-card">
+                    <div class="skill-header">
+                        <span class="skill-icon">🗄️</span>
+                        <h3>SQL Server</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="80"></div>
+                    </div>
+                    <span class="skill-pct">80%</span>
+                    <p class="skill-desc">OLTP schema, T-SQL, data warehousing</p>
+                </div>
+
+                <div class="card skill-card">
+                    <div class="skill-header">
+                        <span class="skill-icon">🤖</span>
+                        <h3>Scikit-learn</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="85"></div>
+                    </div>
+                    <span class="skill-pct">85%</span>
+                    <p class="skill-desc">Random Forest, GridSearchCV, pipelines</p>
+                </div>
+
+                <div class="card skill-card">
+                    <div class="skill-header">
+                        <span class="skill-icon">🔄</span>
+                        <h3>SSIS</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="70"></div>
+                    </div>
+                    <span class="skill-pct">70%</span>
+                    <p class="skill-desc">ETL packages, data flow, DW population</p>
+                </div>
+
+                <div class="card skill-card">
+                    <div class="skill-header">
+                        <span class="skill-icon">📊</span>
+                        <h3>Power BI</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="75"></div>
+                    </div>
+                    <span class="skill-pct">75%</span>
+                    <p class="skill-desc">Dashboards, DAX, data visualization</p>
+                </div>
+
+                <div class="card skill-card">
+                    <div class="skill-header">
+                        <span class="skill-icon">🌐</span>
+                        <h3>HTML / CSS / JS</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="80"></div>
+                    </div>
+                    <span class="skill-pct">80%</span>
+                    <p class="skill-desc">Dark-mode UI, Chart.js, responsive design</p>
+                </div>
+
+                <div class="card skill-card">
+                    <div class="skill-header">
+                        <span class="skill-icon">📓</span>
+                        <h3>Jupyter</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-width="90"></div>
+                    </div>
+                    <span class="skill-pct">90%</span>
+                    <p class="skill-desc">Exploratory analysis, model training notebooks</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CONTACT ==================== -->
+        <section class="page" id="page-contact">
+            <header class="page-header">
+                <h1>Get in Touch</h1>
+                <p>Have a question or want to collaborate? Drop us a message</p>
+            </header>
+
+            <div class="contact-layout">
+                <div class="card contact-form-card">
+                    <div class="card-header">
+                        <h2>Send a Message</h2>
+                        <span class="card-badge">Contact</span>
+                    </div>
+                    <form id="contact-form" class="form-grid">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-name">Your Name</label>
+                                <input type="text" id="contact-name" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Your Email</label>
+                                <input type="email" id="contact-email" placeholder="john@example.com" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="is_primary_item">Is Primary Item</label>
-                            <select id="is_primary_item" name="is_primary_item">
-                                <option value="1">Yes</option>
-                                <option value="0">No</option>
-                            </select>
-                        </div>
-                    </fieldset>
-
-                    <fieldset class="fieldset">
-                        <legend>Marketing</legend>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="utm_source">UTM Source</label>
-                                <select id="utm_source" name="utm_source">
-                                    <option value="gsearch">Google Search</option>
-                                    <option value="bsearch">Bing Search</option>
-                                    <option value="socialbook">Socialbook</option>
-                                    <option value="email">Email</option>
-                                    <option value="direct">Direct</option>
-                                    <option value="organic">Organic</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="utm_campaign">UTM Campaign</label>
-                                <select id="utm_campaign" name="utm_campaign">
-                                    <option value="nonbrand">Non-Brand</option>
-                                    <option value="brand">Brand</option>
-                                    <option value="desktop_targeted">Desktop Targeted</option>
-                                    <option value="pilot">Pilot</option>
-                                    <option value="none">None</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="utm_content">UTM Content</label>
-                                <select id="utm_content" name="utm_content">
-                                    <option value="g_ad_1">Google Ad 1</option>
-                                    <option value="g_ad_2">Google Ad 2</option>
-                                    <option value="b_ad_1">Bing Ad 1</option>
-                                    <option value="b_ad_2">Bing Ad 2</option>
-                                    <option value="none">None</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="device_type">Device Type</label>
-                                <select id="device_type" name="device_type">
-                                    <option value="desktop">Desktop</option>
-                                    <option value="mobile">Mobile</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="http_referer">HTTP Referrer</label>
-                                <select id="http_referer" name="http_referer">
-                                    <option value="https://www.gsearch.com">Google Search</option>
-                                    <option value="https://www.bsearch.com">Bing Search</option>
-                                    <option value="https://www.socialbook.com">Socialbook</option>
-                                    <option value="none">None / Direct</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="is_repeat_session">Repeat Session</label>
-                                <select id="is_repeat_session" name="is_repeat_session">
-                                    <option value="0">New Session</option>
-                                    <option value="1">Repeat Session</option>
-                                </select>
-                            </div>
-                        </div>
-                    </fieldset>
-
-                    <fieldset class="fieldset">
-                        <legend>Time</legend>
-                        <div class="form-row four-col">
-                            <div class="form-group">
-                                <label for="year">Year</label>
-                                <input type="number" id="year" name="year" min="2010" max="2030" value="2013" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="month">Month</label>
-                                <input type="number" id="month" name="month" min="1" max="12" value="5" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="day">Day</label>
-                                <input type="number" id="day" name="day" min="1" max="31" value="12" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="hour">Hour</label>
-                                <input type="number" id="hour" name="hour" min="0" max="23" value="14" required>
-                            </div>
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" placeholder="Project collaboration" required>
                         </div>
                         <div class="form-group">
-                            <label for="quater">Quarter</label>
-                            <select id="quater" name="quater">
-                                <option value="1">Q1</option>
-                                <option value="2" selected>Q2</option>
-                                <option value="3">Q3</option>
-                                <option value="4">Q4</option>
-                            </select>
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" rows="5" placeholder="Tell us about your project or question..." required></textarea>
                         </div>
-                    </fieldset>
-
-                    <fieldset class="fieldset">
-                        <legend>Actual Revenue <span class="optional-badge">Optional</span></legend>
-                        <div class="form-group">
-                            <label for="actual_revenue">Actual Revenue ($)</label>
-                            <input type="number" id="actual_revenue" name="actual_revenue" min="0" step="0.01" value=""
-                                placeholder="Enter for error analysis">
-                        </div>
-                    </fieldset>
-
-                    <button type="submit" class="btn-primary" id="predict-btn">
-                        <span class="btn-icon">📊</span>
-                        <span class="btn-text">Predict Revenue</span>
-                        <span class="spinner" id="btn-spinner"></span>
-                    </button>
-                </form>
-            </section>
-
-            <section class="card result-card" id="result-section" style="display:none;">
-                <div class="card-header">
-                    <h2>Prediction Result</h2>
-                    <span class="card-badge result-badge">Result</span>
+                        <button type="submit" class="btn-primary" id="contact-btn">
+                            <span class="btn-icon">✉️</span>
+                            <span class="btn-text">Send Message</span>
+                        </button>
+                    </form>
+                    <div class="contact-success" id="contact-success" style="display:none;">
+                        <span class="success-icon">✅</span>
+                        <h3>Message Sent!</h3>
+                        <p>Thank you for reaching out. We will get back to you soon.</p>
+                    </div>
                 </div>
-                <div id="result-content">
-                    <div class="result-hero">
-                        <div class="hero-label">Predicted Revenue</div>
-                        <div class="hero-value" id="predicted-revenue">$0.00</div>
+
+                <div class="contact-info">
+                    <div class="card contact-info-card">
+                        <div class="info-icon">📧</div>
+                        <h3>Email</h3>
+                        <p>contact@toystore-analytics.com</p>
                     </div>
-                    <div class="result-metrics" id="metrics-row" style="display:none;">
-                        <div class="metric-card">
-                            <div class="metric-label">Actual Revenue</div>
-                            <div class="metric-value actual" id="actual-value">$0.00</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-label">Absolute Error</div>
-                            <div class="metric-value error" id="abs-error">$0.00</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-label">Percentage Error</div>
-                            <div class="metric-value pct" id="pct-error">0.00%</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-label">Accuracy</div>
-                            <div class="metric-value acc" id="accuracy">0.00%</div>
-                        </div>
+                    <div class="card contact-info-card">
+                        <div class="info-icon">📍</div>
+                        <h3>Location</h3>
+                        <p>Ho Chi Minh City, Vietnam</p>
                     </div>
-                    <div class="result-charts" id="charts-row" style="display:none;">
-                        <div class="chart-container">
-                            <h3>Actual vs Predicted</h3>
-                            <canvas id="comparison-chart"></canvas>
+                    <div class="card contact-info-card">
+                        <div class="info-icon">💻</div>
+                        <h3>GitHub</h3>
+                        <p>github.com/toystore-analytics</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SIGN IN ==================== -->
+        <section class="page" id="page-signin">
+            <header class="page-header">
+                <h1>Welcome Back</h1>
+                <p>Sign in to your account to access full features</p>
+            </header>
+
+            <div class="auth-container">
+                <div class="card auth-card">
+                    <div class="auth-tabs">
+                        <a href="#" class="auth-tab active" data-auth="signin">Sign In</a>
+                        <a href="#" class="auth-tab" data-auth="signup">Sign Up</a>
+                    </div>
+                    <form id="signin-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="signin-email">Email</label>
+                            <input type="email" id="signin-email" placeholder="you@example.com" required>
                         </div>
-                        <div class="chart-container">
-                            <h3>Accuracy</h3>
-                            <div class="gauge-container">
-                                <canvas id="gauge-chart"></canvas>
-                                <div class="gauge-value" id="gauge-value">0%</div>
+                        <div class="form-group">
+                            <label for="signin-password">Password</label>
+                            <input type="password" id="signin-password" placeholder="••••••••" required>
+                        </div>
+                        <div class="auth-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="remember-me">
+                                <span>Remember me</span>
+                            </label>
+                            <a href="#" class="forgot-link">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="btn-primary" id="signin-btn">
+                            <span class="btn-icon">🔑</span>
+                            <span class="btn-text">Sign In</span>
+                        </button>
+                        <p class="auth-alt">
+                            Don't have an account?
+                            <a href="#" class="auth-switch" data-page="signup">Sign Up</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SIGN UP ==================== -->
+        <section class="page" id="page-signup">
+            <header class="page-header">
+                <h1>Create Account</h1>
+                <p>Join the ToyStore Analytics community</p>
+            </header>
+
+            <div class="auth-container">
+                <div class="card auth-card">
+                    <div class="auth-tabs">
+                        <a href="#" class="auth-tab" data-auth="signin">Sign In</a>
+                        <a href="#" class="auth-tab active" data-auth="signup">Sign Up</a>
+                    </div>
+                    <form id="signup-form" class="auth-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="signup-name">Full Name</label>
+                                <input type="text" id="signup-name" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-email">Email</label>
+                                <input type="email" id="signup-email" placeholder="you@example.com" required>
                             </div>
                         </div>
-                    </div>
-                    <div class="input-summary" id="input-summary">
-                        <h3>Input Data</h3>
-                        <div class="summary-grid" id="summary-grid"></div>
-                    </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="signup-password">Password</label>
+                                <input type="password" id="signup-password" placeholder="Min. 8 characters" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-confirm">Confirm Password</label>
+                                <input type="password" id="signup-confirm" placeholder="••••••••" required>
+                            </div>
+                        </div>
+                        <label class="checkbox-label terms-label">
+                            <input type="checkbox" id="agree-terms" required>
+                            <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                        </label>
+                        <button type="submit" class="btn-primary" id="signup-btn">
+                            <span class="btn-icon">🚀</span>
+                            <span class="btn-text">Create Account</span>
+                        </button>
+                        <p class="auth-alt">
+                            Already have an account?
+                            <a href="#" class="auth-switch" data-page="signin">Sign In</a>
+                        </p>
+                    </form>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="card error-card" id="error-section" style="display:none;">
-                <div class="card-header">
-                    <h2>Error</h2>
-                    <span class="card-badge error-badge">Error</span>
-                </div>
-                <div class="error-content" id="error-content"></div>
-            </section>
-        </div>
     </main>
 
     <footer class="footer">
-        <p>Toy Store E-Commerce Analytics Platform &mdash; Powered by FastAPI</p>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="nav-icon">🧸</span>
+                <span>ToyStore Analytics</span>
+            </div>
+            <div class="footer-links">
+                <a href="#" class="nav-link" data-page="about">About</a>
+                <a href="#" class="nav-link" data-page="skills">Skills</a>
+                <a href="#" class="nav-link" data-page="contact">Contact</a>
+            </div>
+            <p>Toy Store E-Commerce Analytics Platform &mdash; Built with FastAPI</p>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
