@@ -31,12 +31,14 @@ A **data warehousing and analytics platform** for a fictional toy store e-commer
 ## Tech Stack
 
 | Category | Technologies |
-|---|---|
+|---|---|---|
 | Languages | Python 3.12, T-SQL, XML (SSIS), MDX (SSAS) |
 | Database | Microsoft SQL Server 2022 (`LENOVO\SQLEXPRESS`) |
 | ETL | SQL Server Integration Services (SSIS) — Visual Studio 2022 / SSDT |
 | OLAP | SQL Server Analysis Services (SSAS) — Multidimensional (MOLAP) |
-| Analysis & ML | Jupyter Notebook, pandas, numpy, matplotlib, seaborn, scikit-learn |
+| Analysis & ML | Jupyter Notebook, pandas, numpy, matplotlib, seaborn, scikit-learn, joblib |
+| API | FastAPI, uvicorn, pydantic |
+| Frontend | Streamlit |
 | BI | Microsoft Power BI |
 | Source Data | [Maven Analytics — Toy Store E-Commerce Database](https://mavenanalytics.io/data-playground/toy-store-e-commerce-database) |
 
@@ -66,6 +68,19 @@ Raw data comes from the **Maven Analytics Data Playground**. It contains ~3 year
 ## Project Structure
 
 ```
+├── app/
+│   ├── fastapi_app/                  # FastAPI backend
+│   │   ├── main.py                   # FastAPI app entry point
+│   │   └── app/
+│   │       ├── api/
+│   │       │   └── prediction_api.py # Prediction API endpoint
+│   │       ├── schemas/
+│   │       │   └── prediction_schema.py  # Pydantic models
+│   │       └── services/
+│   │           ├── model_service.py      # Model loader
+│   │           └── prediction_service.py # Prediction logic
+│   └── streamlit/
+│       └── app.py                    # Streamlit frontend
 ├── data/
 │   ├── raw/              # Source CSV files (6 datasets)
 │   └── processed/        # ETL outputs: star-schema CSV files
@@ -82,8 +97,11 @@ Raw data comes from the **Maven Analytics Data Playground**. It contains ~3 year
 ├── ml/
 │   ├── notebooks/
 │   │   └── 01_create_ml_dataset.ipynb   # ML dataset creation
-│   ├── models/          # Trained models (empty)
-│   └── src/             # ML source code (empty)
+│   ├── models/                          # Trained models
+│   │   └── profit_prediction_model.pkl  # Profit prediction model
+│   ├── reports/                         # ML reports
+│   ├── README.md                        # ML problem analysis
+│   └── src/                             # ML source code (empty)
 ├── reports/
 │   ├── dashboard/       # Dashboard placeholder
 │   ├── data/
@@ -130,7 +148,7 @@ Open the `.dtproj` files in Visual Studio under `database/warehouse/` and execut
 python -m venv venv
 source venv/bin/activate    # Linux/macOS
 .\venv\Scripts\Activate.ps1 # Windows
-pip install pandas numpy matplotlib seaborn jupyter
+pip install -r requirements.txt
 ```
 
 ### 4. Run Notebooks
@@ -138,6 +156,60 @@ pip install pandas numpy matplotlib seaborn jupyter
 ```bash
 jupyter notebook notebooks/
 ```
+
+### 5. Run Applications
+
+#### FastAPI Backend API
+
+Start the prediction API server from the project root:
+
+```bash
+uvicorn app.fastapi_app.main:app --reload
+```
+
+The API is available at `http://localhost:8000` with interactive docs at `http://localhost:8000/docs`.
+
+**Endpoints:**
+
+| Method | Path | Description |
+|---|---|---|
+| GET | `/` | Health check |
+| POST | `/api/v1/predict/profit` | Predict revenue from session data |
+
+Example request:
+
+```bash
+curl -X POST "http://localhost:8000/api/v1/predict/profit" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "items_purchased": 2,
+    "product_id": 1,
+    "product_name": "The Original Mr. Fuzzy",
+    "primary_product_id": 1,
+    "is_primary_item": 1,
+    "utm_source": "gsearch",
+    "utm_campaign": "nonbrand",
+    "utm_content": "g_ad_1",
+    "device_type": "desktop",
+    "http_referer": "https://www.gsearch.com",
+    "is_repeat_session": 0,
+    "year": 2013,
+    "month": 5,
+    "day": 12,
+    "quater": 2,
+    "hour": 14
+  }'
+```
+
+#### Streamlit Frontend
+
+Launch the interactive prediction UI:
+
+```bash
+streamlit run app/streamlit/app.py
+```
+
+The app opens at `http://localhost:8501` with a form to input session features and view predicted revenue along with error analysis when actual revenue is provided.
 
 ## Usage
 
@@ -147,6 +219,21 @@ jupyter notebook notebooks/
 - **Machine Learning**: Run `ml/notebooks/01_create_ml_dataset.ipynb` for feature engineering & model training
 - **OLAP Analysis**: Process the SSAS cube in `database/warehouse/mds/` for multidimensional analysis
 - **Dashboard**: Build Power BI reports in `powerbi/`
+- **Prediction API**: Start with `uvicorn app.fastapi_app.main:app --reload`, then call `/api/v1/predict/profit`
+- **Prediction UI**: Start with `streamlit run app/streamlit/app.py` for an interactive revenue prediction form
+
+## Applications
+
+### FastAPI Backend
+- REST API for profit/revenue prediction using the trained ML model
+- Input validation via Pydantic schemas (`ProfitPredictionRequest` / `ProfitPredictionResponse`)
+- Supports optional actual revenue input to calculate error metrics (absolute error, percentage error, accuracy)
+- Interactive documentation at `/docs` (Swagger UI)
+
+### Streamlit Frontend
+- User-friendly form-based UI for revenue prediction
+- Dual prediction buttons with error analysis when actual revenue is provided
+- Visual comparison: Actual vs Predicted revenue bar chart and error analysis chart
 
 ## Results
 
