@@ -31,7 +31,7 @@ A **data warehousing and analytics platform** for a fictional toy store e-commer
 ## Tech Stack
 
 | Category | Technologies |
-|---|---|---|
+|---|---|
 | Languages | Python 3.12, T-SQL, XML (SSIS), MDX (SSAS) |
 | Database | Microsoft SQL Server 2022 (`LENOVO\SQLEXPRESS`) |
 | ETL | SQL Server Integration Services (SSIS) — Visual Studio 2022 / SSDT |
