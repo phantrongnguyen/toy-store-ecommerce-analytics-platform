@@ -5,7 +5,7 @@ import joblib
 from pathlib import Path
 
 MODEL_PATH = (
-    Path(__file__).resolve().parent.parent
+    Path(__file__).resolve().parent.parent.parent
     / "ml"
     / "models"
     / "profit_prediction_model.pkl"
