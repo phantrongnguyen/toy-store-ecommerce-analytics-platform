@@ -1,13 +1,24 @@
 from fastapi import FastAPI
 
-app = FastAPI()
+from app.fastapi_app.app.api.prediction_api import router as prediction_router
+
+
+app = FastAPI(
+    title="Toy Store E-Commerce Prediction API",
+    description="API for predicting profit/revenue from e-commerce session data",
+    version="1.0.0"
+)
+
+
+app.include_router(
+    prediction_router,
+    prefix="/api/v1",
+    tags=["Prediction"]
+)
 
 
 @app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str | None = None):
-    return {"item_id": item_id, "q": q}
+def root():
+    return {
+        "message": "Toy Store E-Commerce Prediction API is running"
+    }
