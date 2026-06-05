@@ -42,6 +42,7 @@ A **data warehousing and analytics platform** for a fictional toy store e-commer
 | BI | Microsoft Power BI |
 | Source Data | [Maven Analytics — Toy Store E-Commerce Database](https://mavenanalytics.io/data-playground/toy-store-e-commerce-database) |
 
+
 ## Data Source
 
 Raw data comes from the **Maven Analytics Data Playground**. It contains ~3 years of e-commerce data (Mar 2012 – Apr 2015) for a fictional toy store:
@@ -244,6 +245,7 @@ The app opens at `http://localhost:8501` with a form to input session features a
 - **Data Warehouse**: Star schema with 1 fact table (fact) and 5 dimension tables (dim_time, dim_session, dim_product, dim_order, dim_papeview)
 - **SSAS Cube**: Multidimensional OLAP cube defined with 5 dimensions and 6 measure groups (unprocessed)
 - **ETL Pipeline**: 3 SSIS packages handle end-to-end data flow from raw CSVs → OLTP → staging → DW
+
 
 ## License
 
