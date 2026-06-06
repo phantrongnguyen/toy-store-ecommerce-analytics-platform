@@ -14,3 +14,4 @@ database/warehouse/*
 !database/warehouse/setup_data_warehouse_schema.sql
 
 reports/data/mflows.drawio
+reports/data/star_schema.drawio
