@@ -21,6 +21,12 @@ A **data warehousing and analytics platform** for a fictional toy store e-commer
               [Power BI]  [EDA / ML / Reports]
 ```
 
+<p align="center">
+  <img src="reports/data/mlflow.png" alt="OLTP Schema" width="80%" />
+  <br>
+  <em>Image 1. Data pipeline architecture</em>
+</p>
+
 - **Source Layer**: Raw CSV files from Maven Analytics Data Playground
 - **Staging Area**: SQL Server OLTP database (`toy_store_database`)
 - **Data Warehouse**: SQL Server star-schema (`toy_store_datawarehouse`)
