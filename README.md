@@ -33,7 +33,7 @@ A **data warehousing and analytics platform** for a fictional toy store e-commer
 | Category | Technologies |
 |---|---|
 | Languages | Python 3.12, T-SQL, XML (SSIS), MDX (SSAS) |
-| Database | Microsoft SQL Server 2022 (`LENOVO\SQLEXPRESS`) |
+| Database | Microsoft SQL Server 2022 |
 | ETL | SQL Server Integration Services (SSIS) — Visual Studio 2022 / SSDT |
 | OLAP | SQL Server Analysis Services (SSAS) — Multidimensional (MOLAP) |
 | Analysis & ML | Jupyter Notebook, pandas, numpy, matplotlib, seaborn, scikit-learn, joblib |
